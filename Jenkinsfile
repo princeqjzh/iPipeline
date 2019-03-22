@@ -7,6 +7,16 @@ pipeline {
                 echo 'hello pipeline begin'
             }
         }
+        stage('running'){
+            steps {
+                echo 'hello pipeline running'
+            }
+        }
+        stage('finish'){
+            steps {
+                echo 'hello pipeline finish'
+            }
+        }
     }
 
     post {
