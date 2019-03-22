@@ -1,0 +1,25 @@
+pipeline {
+    agent  {
+        node{
+            label 'slaveNode'
+            customWorkspace "myWorkspace"
+        }
+
+    }
+
+    options {
+        timeout(time: 1, unit: 'SECONDS')
+        retry(3)
+    }
+    //演示超时，然后错误退出
+    stages {
+        stage('Fail'){
+            steps {
+                sh 'date'
+                sh 'sleep 2'
+                sh 'exit -1'
+            }
+        }
+    }
+
+}

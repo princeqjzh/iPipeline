@@ -1,0 +1,35 @@
+node {
+    stage('Example') {
+        if (env.BRANCH_NAME == 'master') {
+            echo 'I only execute on the master branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
+}
+
+stage('Build') {
+    node {
+        echo "This is build stage."
+    }
+}
+
+stage('Test') {
+    node('slave') {
+        echo "This is test stage which run on the slave agent."
+
+        try {
+
+            echo "This is in the try block."
+
+        }catch (exc) {
+
+            echo "Something failed, I'm in the catch block."
+
+        }finally {
+
+            echo "Finally, I'm in the finally block."
+
+        }
+    }
+}

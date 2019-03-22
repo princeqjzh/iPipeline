@@ -1,0 +1,28 @@
+pipeline {
+    agent  {
+        node{
+            label 'slaveNode'
+            customWorkspace "myWorkspace"
+        }
+
+    }
+
+    //触发时间
+    triggers {
+        cron('0 9-20/1 * * 1-5')
+    }
+
+    //参数化构建
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Michael', description: '输入的文本参数')
+    }
+
+    stages {
+        stage('Test Parameters'){
+            steps {
+                echo "Hello ${params.PERSON}"
+            }
+        }
+    }
+
+}

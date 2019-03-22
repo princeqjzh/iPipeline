@@ -1,0 +1,41 @@
+pipeline {
+    agent  {
+        node{
+            label 'slaveNode'
+            customWorkspace "myWorkspace"
+        }
+
+    }
+
+    environment {
+        hlw = 'hello world'
+    }
+
+    stages {
+        stage('Print environment_1'){
+            steps {
+                echo hlw
+            }
+        }
+
+        stage('Print environment_2'){
+            steps {
+                sh 'echo ${hlw}'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'goodbay pipeline success!'
+        }
+
+        failure {
+            echo 'ops!!! pipeline failed....'
+        }
+
+        always {
+            echo 'always say goodbay'
+        }
+    }
+}
