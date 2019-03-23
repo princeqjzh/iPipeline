@@ -1,5 +1,11 @@
 pipeline {
-    agent  any
+    agent {
+          node{
+              label 'slaveNode'
+              customWorkspace "myWorkspace"
+          }
+
+    }
 
     stages {
         stage('begin'){
