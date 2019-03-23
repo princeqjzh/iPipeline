@@ -7,19 +7,18 @@ pipeline {
 
     }
 
-    options {
-        timeout(time: 30, unit: 'SECONDS')
-        retry(5)
-    }
-
     stages {
-        stage('success'){
+        stage('git pull source code'){
             steps {
-                sh 'date'
-                sh 'sleep 2'
-                sh 'exit -1'
+                echo 'pull source code'
             }
         }
+
     }
 
+    post {
+        always {
+            echo 'say goodbay'
+        }
+    }
 }

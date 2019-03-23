@@ -1,0 +1,25 @@
+stage('prepare') {
+    node {
+        echo "This is prepare stage."
+    }
+}
+
+stage('Test') {
+    node('slave') {
+        echo "This is test stage which run on the slave agent."
+
+        try {
+
+            echo "This is in the try block."
+
+        }catch (exc) {
+
+            echo "Something failed, I'm in the catch block."
+
+        }finally {
+
+            echo "Finally, I'm in the finally block."
+
+        }
+    }
+}
