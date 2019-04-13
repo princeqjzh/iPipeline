@@ -1,8 +1,8 @@
 pipeline {
     agent {
           node{
-              label 'slaveNode'
-              customWorkspace "myWorkspace"
+              label 'master'
+              customWorkspace "pipelineWorkspace"
           }
 
     }
@@ -21,7 +21,7 @@ pipeline {
         stage('finish'){
             steps {
                 echo 'hello pipeline finish'
-                sh 'exit -1'
+                sh 'exit 0'
             }
         }
     }
