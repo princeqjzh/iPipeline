@@ -1,0 +1,26 @@
+pipeline {
+    agent  {
+        node{
+            label 'slaveNode'
+            customWorkspace "myWorkspace"
+        }
+
+    }
+
+    triggers {
+        cron('H/2 * * * *')
+    }
+
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Jenkins', description: '输入的文本参数')
+    }
+
+    stages {
+        stage('Test Parameters'){
+            steps {
+                echo "Hello ${params.PERSON}"
+            }
+        }
+    }
+
+}

@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('pull source code'){
+            steps {
+                echo 'pull source code'
+                sleep 5
+            }
+        }
+
+        stage('build'){
+            steps {
+                echo 'build source code'
+                sleep 5
+            }
+        }
+
+        stage('test'){
+            steps {
+                echo 'run unit test'
+            }
+        }
+
+        stage('deploy'){
+            steps {
+                echo 'deploy to the website'
+                sleep 5
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'say goodbay'
+        }
+    }
+}

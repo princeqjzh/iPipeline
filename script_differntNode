@@ -1,0 +1,13 @@
+stage('Build') {
+    node('master') {
+        echo "This is build stage which run on the master agent."
+        sleep 2
+    }
+}
+
+stage('Deploy') {
+    node('slave') {
+        echo "This is deploy stage which run on the slave agent."
+        sleep 2
+    }
+}

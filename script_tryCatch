@@ -5,7 +5,7 @@ stage('prepare') {
 }
 
 stage('Test') {
-    node('slave') {
+    node{
         echo "This is test stage which run on the slave agent."
 
         try {

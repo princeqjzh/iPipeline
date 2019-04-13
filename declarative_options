@@ -1,0 +1,52 @@
+pipeline {
+    agent  {
+        node{
+            label 'slaveNode'
+            customWorkspace "pipelineWorkspace"
+        }
+
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '2'))
+    }
+
+    stages {
+        stage('begin'){
+            steps {
+                echo 'hello pipeline begin'
+                sleep 2
+            }
+        }
+        stage('running'){
+            steps {
+                echo 'hello pipeline running'
+                sleep 2
+            }
+        }
+        stage('finish'){
+            steps {
+                echo 'hello pipeline finish'
+                sleep 2
+                sh 'exit 0'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'goodbay pipeline success!'
+            sleep 2
+        }
+
+        failure {
+            echo 'ops!!! pipeline failed....'
+            sleep 2
+        }
+
+        always {
+            echo 'always say goodbay'
+        }
+    }
+
+}
