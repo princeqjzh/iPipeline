@@ -6,7 +6,7 @@ stage('Build') {
 }
 
 stage('Deploy') {
-    node('slave') {
+    node('slaveNode') {
         echo "This is deploy stage which run on the slave agent."
         sleep 2
     }
