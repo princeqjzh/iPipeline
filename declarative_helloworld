@@ -31,7 +31,7 @@ pipeline {
 
     post {
         success {
-            echo 'goodbay pipeline success!'
+            echo 'goodbye pipeline success!'
             sleep 5
         }
 
