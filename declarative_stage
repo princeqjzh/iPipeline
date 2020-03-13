@@ -32,7 +32,7 @@ pipeline {
 
     post {
         always {
-            echo 'say goodbay'
+            echo 'say goodby'
         }
     }
 }
