@@ -28,7 +28,7 @@ pipeline {
 
     post {
         success {
-            echo 'goodbay pipeline success!'
+            echo 'goodbye pipeline success!'
         }
 
         failure {
@@ -36,7 +36,7 @@ pipeline {
         }
 
         always {
-            echo 'always say goodbay'
+            echo 'always say goodbye'
         }
     }
 }

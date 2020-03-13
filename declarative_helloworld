@@ -41,7 +41,7 @@ pipeline {
         }
 
         always {
-            echo 'always say goodbay'
+            echo 'always say goodbye'
         }
     }
 }
