@@ -21,7 +21,7 @@ pipeline {
         stage('finish'){
             steps {
                 echo 'hello pipeline finish'
-                sh 'exit 0'
+                sh 'exit -1'
             }
         }
     }
