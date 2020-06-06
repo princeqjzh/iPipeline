@@ -8,8 +8,9 @@ pipeline {
     }
 
     options {
-        timeout(time: 1, unit: 'SECONDS')
+        timeout(time: 30, unit: 'SECONDS')
         buildDiscarder(logRotator(numToKeepStr: '2'))
+        retry(5)
     }
 
     stages {
