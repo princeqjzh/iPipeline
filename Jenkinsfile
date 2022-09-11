@@ -25,8 +25,19 @@ pipeline {
     }
 
     stage('running') {
-      steps {
-        echo 'hello pipeline running'
+      parallel {
+        stage('running') {
+          steps {
+            echo 'hello pipeline running'
+          }
+        }
+
+        stage('running 2') {
+          steps {
+            sh 'echo "This is running 2"'
+          }
+        }
+
       }
     }
 
